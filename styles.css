@@ -240,6 +240,23 @@ hr.index {
   }
 }
 
+@media (max-width: 480px) { /*iphone and droid safety styles */
+  .hero-text {
+    top: 10%;
+    font-size: 16pt;
+  }
+
+  .small-images {
+    bottom: 5%;
+    width: 90%;
+  }
+
+  .small-images img {
+    width: 45%;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+}
 
 
 
