@@ -17,11 +17,26 @@ hr.index {
   padding: 0.5rem 1rem;
   position: relative;
   height: 90px;
+  
+ 
+}
+.navbar.shrink {
+  padding: 0.25rem 1rem;
+  font-size: 0.9rem;
+}
+
+.navbar.shrink .logo {
+  font-size: 1.2rem;
+}
+
+.navbar.shrink .nav-toggle {
+  font-size: 1.2rem;
 }
 
 .logo {
   color: darkslateblue;
   font-size: 1.5rem;
+  font-family: Playfair Display;
 }
 
 .nav-menu {
