@@ -1,37 +1,24 @@
 async function fetchStickiedPosts() {
   try {
-    const response = await fetch("https://examone.techlilja.io/");
-    const data = await response.json();
-    const stickiedPosts = data.filter((post) => post.stickied);
+    const response = await fetch("https://examone.techlilja.io/wp-json/wp/v2/posts?sticky=true");
+    const stickiedPosts = await response.json();
 
     for (let i = 0; i < stickiedPosts.length && i < 4; i++) {
       const post = stickiedPosts[i];
       const imgElement = document.getElementById(`small-image-${i + 1}`);
+      const linkElement = document.getElementById(`small-image-link-${i + 1}`);
+      const featuredImage = post._links['wp:featuredmedia'][0].href;
 
-      if (imgElement) {
-        imgElement.src = post.image_url;
-        imgElement.alt = post.title;
+      if (imgElement && linkElement) {
+        imgElement.src = featuredImage;
+        imgElement.alt = post.title.rendered;
+
+        linkElement.href = `posts.html?post_id=${post.id}`;
       }
     }
   } catch (error) {
-    console.error("Error fetching stickied posts:", error);
+    console.error("Error fetching data from API:", error);
   }
 }
 
 document.addEventListener("DOMContentLoaded", fetchStickiedPosts);
-
-for (let i = 0; i < stickiedPosts.length && i < 4; i++) {
-  const post = stickiedPosts[i];
-  const imgElement = document.getElementById(`small-image-${i + 1}`);
-
-  if (imgElement) {
-    imgElement.src = post.image_url;
-    imgElement.alt = post.title;
-
-    // Add the following lines
-    imgElement.style.cursor = "pointer";
-    imgElement.addEventListener("click", () => {
-      window.location.href = `posts.html?post_id=${post.id}`;
-    });
-  }
-}
