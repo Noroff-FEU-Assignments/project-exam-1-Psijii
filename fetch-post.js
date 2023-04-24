@@ -1,32 +1,22 @@
-async function fetchPost() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const postId = urlParams.get("post_id");
-
-  if (!postId) {
-    console.error("Post ID not found in the URL");
-    return;
-  }
-
-  try {
-    const response = await fetch(`https://examone.techlilja.io/wp-json/wp/v2/posts/${postId}`);
-    const post = await response.json();
-
-    displayPost(post);
-  } catch (error) {
-    console.error("Error fetching data from API:", error);
-  }
+async function getPostById(id) {
+  const response = await fetch(`https://examone.techlilja.io/wp-json/wp/v2/posts/${id}`);
+  const data = await response.json();
+  return data;
 }
 
-function displayPost(post) {
-  const postContainer = document.getElementById("post-container");
+async function displayPost() {
+  const postId = sessionStorage.getItem('selectedPostId');
+  const post = await getPostById(postId);
+  const postContainer = document.getElementById('post-container');
 
-  const postTitle = document.createElement("h2");
-  postTitle.innerHTML = post.title.rendered;
-  postContainer.appendChild(postTitle);
+  const title = document.createElement('h1');
+  title.innerHTML = post.title.rendered;
 
-  const postContent = document.createElement("div");
-  postContent.innerHTML = post.content.rendered;
-  postContainer.appendChild(postContent);
+  const content = document.createElement('div');
+  content.innerHTML = post.content.rendered;
+
+  postContainer.appendChild(title);
+  postContainer.appendChild(content);
 }
 
-document.addEventListener("DOMContentLoaded", fetchPost);
+displayPost();

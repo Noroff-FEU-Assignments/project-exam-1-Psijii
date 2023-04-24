@@ -216,6 +216,49 @@ img {
 }
 
 
+/* Gallery styles */
+#gallery-container {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+
+
+/* Post styles */
+#post-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#post-container h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#post-container img {
+  max-width: 100%;
+  height: auto;
+}
 
 
 /* Responsive styles */
