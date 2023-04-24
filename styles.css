@@ -8,6 +8,22 @@ body {
 hr.index {
   border: 1px solid black;
 }
+a {
+  text-decoration: none;
+  font-weight: 600;
+}
+a:hover {
+  color: #726BA2;
+}
+p {
+  color: #2D2D2D;
+}
+
+img {
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+}
 
 .navbar {
   display: flex;
@@ -37,6 +53,7 @@ hr.index {
   color: darkslateblue;
   font-size: 1.5rem;
   font-family: Playfair Display;
+  font-weight: bold;
 }
 
 .nav-menu {
@@ -55,7 +72,7 @@ hr.index {
 }
 
 .nav-menu li a:hover {
-  color: turquoise;
+  color: #726BA2;
 }
 
 .nav-toggle {
@@ -90,7 +107,7 @@ hr.index {
   object-fit: cover;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  border: 5px solid white;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .hero-text {
@@ -187,6 +204,7 @@ hr.index {
 .social-media a {
   color: darkslateblue;
   text-decoration: none;
+  font-weight: 400;
 }
 
 .social-media a:hover {

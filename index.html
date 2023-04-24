@@ -13,7 +13,7 @@
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">CALLIE</div>
+      <div class="logo"><a href="index.html">CALLIE</a></div>
       <ul class="nav-menu">
         <li><a href="#">Home</a></li>
         <li><a href="#">Journey</a></li>
@@ -28,13 +28,12 @@
 </header>
 <section class="hero">
     <h1 class="hero-text">One rabbit's adventure in Provence</h1>
-    <div class="small-images">
-  <div class="small-images">
-    <img src="images/heroimage1.png" alt="Image 1">
-    <img src="images/pont-du-gard.jpg" alt="Image 2">
-    <img src="images/provence-village.jpg" alt="Image 3">
-    <img src="images/provence-wine.jpg" alt="Image 4">
-  </div>
+      <div class="small-images">
+        <img id="small-image-1" src="images/heroimage1.png" alt="Image 1">
+        <img id="small-image-2" src="images/pont-du-gard.jpg" alt="Image 2">
+        <img id="small-image-3" src="images/provence-village.jpg" alt="Image 3">
+        <img id="small-image-4" src="images/provence-wine.jpg" alt="Image 4">
+      </div>
 </section>
 <section class="content-section">
   <div class="popular-posts">
@@ -72,5 +71,6 @@
 </section>
 
 <script src="nav.js"></script>
+<script src="fetch-posts.js"></script>
 </body>
 </html>
