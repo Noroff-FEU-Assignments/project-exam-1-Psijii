@@ -71,6 +71,77 @@ img {
   display: none;
 }
 
+/* all posts stuff */
+/* Container for all posts */
+#all-posts-container {
+  margin: 2rem 0;
+}
+
+/* Individual post */
+.post {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+  padding: 2rem;
+  width: 90%;
+}
+
+.post img {
+  width: 300px;
+  height: auto;
+}
+
+/* Post title */
+.post h2 {
+  font-size: 24px;
+  margin-bottom: 1rem;
+  font-family: Playfair Display;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  margin: 15% auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Post content */
+.post div {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+
+
 /*hero image front page */
 
 .hero {

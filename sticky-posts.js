@@ -1,69 +1,66 @@
 
-let currentPage = 1;
 
-async function displayLatestPosts(page = 1) {
-  currentPage = page;
-  const perPage = 5;
-  const response = await fetch(
-    `https://examone.techlilja.io/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}&sticky=false`
+
+// -------------------------------------------- //
+//
+// It's working perfectly! Stop destryoing it.  //
+//
+// -------------------------------------------- //
+
+
+async function getStickiedPosts() {
+  const response = await fetch('https://examone.techlilja.io/wp-json/wp/v2/posts?sticky=true');
+  const data = await response.json();
+
+  const stickiedPosts = await Promise.all(
+    data.map(async post => {
+      if (post.featured_media) {
+        const mediaResponse = await fetch(
+          `https://examone.techlilja.io/wp-json/wp/v2/media/${post.featured_media}`
+        );
+        const mediaData = await mediaResponse.json();
+        post.featured_media_url = mediaData.source_url;
+      }
+      return post;
+    })
   );
-  const posts = await response.json();
-  
-  displayPosts(posts, page !== 1);
+
+  return stickiedPosts;
 }
 
-function displayPosts(posts, append = false) {
-  const latestPostsContainer = document.getElementById('latest-posts-container');
-  if (!append) {
-    latestPostsContainer.innerHTML = '';
-  }
 
-  for (const post of posts) {
-    const postWrapper = document.createElement('div');
-    postWrapper.classList.add('post-wrapper');
+async function displayGallery() {
+  const stickiedPosts = await getStickiedPosts();
+  const galleryContainer = document.getElementById('gallery-container');
 
+  stickiedPosts.forEach(post => {
     const imageWrapper = document.createElement('div');
     imageWrapper.classList.add('image-wrapper');
-    const imageUrl = post._embedded['wp:featuredmedia'][0].source_url;
-    imageWrapper.style.backgroundImage = `url(${imageUrl})`;
 
-    const title = document.createElement('h3');
-    title.innerHTML = post.title.rendered;
+    const image = document.createElement('img');
+    image.src = post.featured_media_url; // Assuming the API returns the featured image URL
+    image.alt = post.title.rendered;
+    image.dataset.postId = post.id;
 
-    postWrapper.appendChild(imageWrapper);
-    postWrapper.appendChild(title);
-    latestPostsContainer.appendChild(postWrapper);
+    imageWrapper.appendChild(image);
+    galleryContainer.appendChild(imageWrapper);
+  });
 
-    // Add click event listener
-    postWrapper.addEventListener('click', () => {
-      sessionStorage.setItem('selectedPostId', post.id);
+  // Add this after the gallery is created
+  addClickEventsToImages();
+}
+
+function addClickEventsToImages() {
+  const images = document.querySelectorAll('.image-wrapper img');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      const postId = img.dataset.postId;
+      sessionStorage.setItem('selectedPostId', postId);
       window.location.href = 'posts.html';
     });
-  }
+  });
 }
 
-async function loadMorePosts() {
-  currentPage += 1;
-  displayLatestPosts(currentPage);
-}
+displayGallery();
 
-function createLoadMoreButton() {
-  const paginationContainer = document.getElementById('pagination-container');
-  const loadMoreButton = document.createElement('button');
-  loadMoreButton.innerText = 'Load more';
-  loadMoreButton.addEventListener('click', loadMorePosts);
-  paginationContainer.appendChild(loadMoreButton);
-}
-
-async function init() {
-  displayLatestPosts(1);
-  createLoadMoreButton();
-}
-
-init();
-
-async function getNumberOfPages() {
-  const response = await fetch('https://examone.techlilja.io/wp-json/wp/v2/posts');
-  const totalPages = parseInt(response.headers.get('x-wp-totalpages'));
-  return totalPages;
-}

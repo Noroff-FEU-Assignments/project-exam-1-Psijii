@@ -1,4 +1,3 @@
-let currentPage = 1;
 
 async function displayLatestPosts(page = 1) {
   currentPage = page;
