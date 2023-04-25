@@ -2,7 +2,7 @@ let currentPage = 1;
 
 async function displayLatestPosts(page = 1) {
   currentPage = page;
-  const perPage = 4;
+  const perPage = 6;
   const response = await fetch(
     `https://examone.techlilja.io/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}&sticky=false`
   );
@@ -49,7 +49,7 @@ async function loadMorePosts() {
 function createLoadMoreButton() {
   const paginationContainer = document.getElementById('pagination-container');
   const loadMoreButton = document.createElement('button');
-  loadMoreButton.innerText = 'Load More';
+  loadMoreButton.innerText = 'Load more';
   loadMoreButton.addEventListener('click', loadMorePosts);
   paginationContainer.appendChild(loadMoreButton);
 }
