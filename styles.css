@@ -6,7 +6,7 @@ body {
 }
 
 hr.index {
-  border: 1px solid black;
+  border: 1px solid #2D2D2D;
 }
 a {
   text-decoration: none;
@@ -21,8 +21,8 @@ p {
 
 img {
   border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  border: 2px solid white;
 }
 
 .navbar {
@@ -77,25 +77,6 @@ img {
   z-index: -1;
 }
 
-.small-images {
-  position: absolute;
-  bottom: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-
-}
-
-.small-images img {
-  width: 20%;
-  object-fit: cover;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-}
-
 .hero-text {
   position: absolute;
   top: 30%;
@@ -117,14 +98,6 @@ img {
   padding: 2rem;
 }
 
-.popular-posts {
-  width: 65%;
-}
-
-.popular-posts h2 {
-  font-family: Playfair Display;
-}
-
 .post-grid {
   display: flex;
   flex-wrap: wrap;
@@ -144,12 +117,10 @@ img {
   cursor: pointer;
   }
   
-
 .post-grid h3 {
   margin-top: 0.5rem;
   text-align: center;
 }
-
 
 .post-grid img {
   width: 48%;
@@ -271,17 +242,14 @@ img {
   display: flex;
   justify-content: space-between;
   width: 80%;
-  
 }
 
 .image-wrapper {
   position: relative;
-  overflow: hidden;
   width: 200px;
   height: 200px;
   border-radius: 5px;
-  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
-
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 .image-wrapper img {
@@ -289,12 +257,9 @@ img {
   height: 100%;
   object-fit: cover;
   cursor: pointer;
-  transition: transform 0.3s;
 }
 
-.image-wrapper img:hover {
-  transform: scale(1.1);
-}
+
 
 .image-title {
   position: absolute;
@@ -320,6 +285,7 @@ img {
 
   .image-title {
     opacity: 1;
+    border-radius: 5px;
   }
 }
 
@@ -404,16 +370,6 @@ img {
     top: 10%;
   }
 
-  .small-images {
-    flex-wrap: wrap;
-    justify-content: space-around;
-    height: auto;
-  }
-
-  .small-images img {
-    width: 45%;
-    margin-bottom: 1rem;
-  }
   .content-section {
     flex-direction: column;
   }
@@ -425,8 +381,17 @@ img {
   .author-info {
     width: 100%;
   }
-}
 
+  #gallery-container {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  #gallery-container .image-wrapper {
+    width: 45%;
+  }
+}
 
 
 @media (max-width: 480px) { /*iphone and droid safety styles */

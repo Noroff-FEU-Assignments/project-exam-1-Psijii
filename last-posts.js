@@ -1,12 +1,21 @@
+let currentPage = 1;
+
 async function displayLatestPosts(page = 1) {
+  currentPage = page;
   const perPage = 4;
   const response = await fetch(
     `https://examone.techlilja.io/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}&sticky=false`
   );
   const posts = await response.json();
+  
+  displayPosts(posts, page !== 1);
+}
 
+function displayPosts(posts, append = false) {
   const latestPostsContainer = document.getElementById('latest-posts-container');
-  latestPostsContainer.innerHTML = '';
+  if (!append) {
+    latestPostsContainer.innerHTML = '';
+  }
 
   for (const post of posts) {
     const postWrapper = document.createElement('div');
@@ -32,25 +41,28 @@ async function displayLatestPosts(page = 1) {
   }
 }
 
-async function displayPagination() {
-  const totalPages = await getNumberOfPages();
-  const paginationContainer = document.getElementById('pagination-container');
-
-  for (let i = 1; i <= totalPages; i++) {
-    const pageButton = document.createElement('button');
-    pageButton.innerText = i;
-    pageButton.addEventListener('click', () => {
-      displayLatestPosts(i);
-    });
-    paginationContainer.appendChild(pageButton);
-  }
+async function loadMorePosts() {
+  currentPage += 1;
+  displayLatestPosts(currentPage);
 }
+
+function createLoadMoreButton() {
+  const paginationContainer = document.getElementById('pagination-container');
+  const loadMoreButton = document.createElement('button');
+  loadMoreButton.innerText = 'Load More';
+  loadMoreButton.addEventListener('click', loadMorePosts);
+  paginationContainer.appendChild(loadMoreButton);
+}
+
+async function init() {
+  displayLatestPosts(1);
+  createLoadMoreButton();
+}
+
+init();
 
 async function getNumberOfPages() {
   const response = await fetch('https://examone.techlilja.io/wp-json/wp/v2/posts');
   const totalPages = parseInt(response.headers.get('x-wp-totalpages'));
   return totalPages;
 }
-
-displayLatestPosts(1);
-displayPagination();
