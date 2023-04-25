@@ -28,15 +28,19 @@ async function displayGallery() {
     imageWrapper.classList.add('image-wrapper');
 
     const image = document.createElement('img');
-    image.src = post.featured_media_url; // Assuming the API returns the featured image URL
+    image.src = post.featured_media_url;
     image.alt = post.title.rendered;
     image.dataset.postId = post.id;
 
+    const title = document.createElement('div');
+    title.classList.add('image-title');
+    title.innerHTML = post.title.rendered;
+
     imageWrapper.appendChild(image);
+    imageWrapper.appendChild(title);
     galleryContainer.appendChild(imageWrapper);
   });
 
-  // Add this after the gallery is created
   addClickEventsToImages();
 }
 

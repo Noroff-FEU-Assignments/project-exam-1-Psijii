@@ -33,27 +33,13 @@ img {
   padding: 0.5rem 1rem;
   position: relative;
   height: 90px;
-  
- 
-}
-.navbar.shrink {
-  padding: 0.25rem 1rem;
-  font-size: 0.9rem;
-}
-
-.navbar.shrink .logo {
-  font-size: 1.2rem;
-}
-
-.navbar.shrink .nav-toggle {
-  font-size: 1.2rem;
 }
 
 .logo {
   color: darkslateblue;
   font-size: 1.5rem;
   font-family: Playfair Display;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .nav-menu {
@@ -116,7 +102,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #fff;
-  font-size: 72pt;
+  font-size: 28pt;
   text-align: center;
   line-height: 1.2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -216,7 +202,7 @@ img {
 }
 
 
-/* Gallery styles */
+/* Gallery styles old veresion
 #gallery-container {
   position: absolute;
   bottom: 10%;
@@ -229,7 +215,6 @@ img {
 
 .image-wrapper {
   position: relative;
-  overflow: hidden;
   width: 200px;
   height: 200px;
 }
@@ -241,8 +226,67 @@ img {
   cursor: pointer;
   transition: transform 0.3s;
 }
+*/
+/* Gallery styles */
+#gallery-container {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  
+}
 
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.image-wrapper img:hover {
+  transform: scale(1.1);
+}
+
+.image-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.image-wrapper:hover .image-title {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .image-wrapper {
+    width: calc(50% - 7.5px);
+  }
+
+  .image-title {
+    opacity: 1;
+  }
+}
 
 /* Post styles */
 #post-container {
@@ -266,7 +310,9 @@ img {
   .nav-menu {
     display: none;
   }
-
+  .navbar {
+    height: 40px;
+  }
   .nav-toggle {
     display: block;
     color: darkslateblue;
@@ -316,6 +362,8 @@ img {
   }
 }
 
+
+
 @media (max-width: 480px) { /*iphone and droid safety styles */
   .hero-text {
     top: 10%;
@@ -335,5 +383,13 @@ img {
 }
 
 
-
+@media (max-width: 1020px) { /*iphone and droid safety styles */
+  .hero-text {
+    top: 10%;
+    font-size: 22pt;
+  }
+  .navbar {
+    height: 40px;
+  }
+}
 
