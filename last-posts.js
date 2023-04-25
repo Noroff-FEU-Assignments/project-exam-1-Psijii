@@ -2,7 +2,7 @@ let currentPage = 1;
 
 async function displayLatestPosts(page = 1) {
   currentPage = page;
-  const perPage = 6;
+  const perPage = 5;
   const response = await fetch(
     `https://examone.techlilja.io/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}&sticky=false`
   );
