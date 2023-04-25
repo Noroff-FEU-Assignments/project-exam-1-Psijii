@@ -6,64 +6,6 @@ body {
   padding: 10px;
 }
 
-/*comment section */
-#comments-section {
-  margin: 20px auto;
-  width: 100%;
-  max-width: 600px;
-}
-
-#comments-section h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-family: Playfair Display;
-}
-
-#comment-form {
-  display: flex;
-  flex-direction: column;
-}
-
-#comment-form input,
-#comment-form textarea {
-  margin-bottom: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
-  width: 100%;
-}
-
-#comment-form label {
-  font-weight: bold;
-  font-size: 18px;
-  margin-bottom: 5px;
-  font-family: Playfair Display;
-}
-
-#comment-form textarea {
-  resize: none;
-  height: 150px;
-}
-
-#comment-form button {
-  width: 100%;
-  background-color: darkslateblue;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-family: Playfair Display;
-  margin: 0;
-}
-
-#comment-form button:hover {
-  background-color: #7958ee;
-}
-
 
 hr.index {
   border: 1px solid #2D2D2D;
