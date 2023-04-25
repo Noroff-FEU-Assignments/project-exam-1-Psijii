@@ -40,22 +40,30 @@ document.getElementById("comment-form").addEventListener("submit", async (event)
 });
 
 async function submitComment(postId, author, email, content) {
-  const response = await fetch("https://examone.techlilja.io/wp-json/wp/v2/comments", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      post: postId,
-      author_name: author,
-      author_email: email,
-      content: content,
-    }),
-  });
+  try {
+    const response = await fetch("https://examone.techlilja.io/wp-json/wp/v2/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        post: postId,
+        author_name: author,
+        author_email: email,
+        content: content,
+      }),
+    });
 
-  if (!response.ok) {
-    throw new Error("Failed to submit comment");
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      console.error("Error response:", errorResponse);
+      throw new Error("Failed to submit comment");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Error in submitComment:", error);
+    throw error;
   }
-
-  return await response.json();
 }
+
