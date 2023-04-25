@@ -98,6 +98,9 @@ img {
   margin-bottom: 1rem;
   font-family: Playfair Display;
 }
+
+/*image modals */
+
 .modal {
   display: none;
   position: fixed;
