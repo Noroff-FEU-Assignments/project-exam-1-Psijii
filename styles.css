@@ -60,7 +60,7 @@ img {
   color: darkslateblue;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .nav-menu li a:hover {
@@ -159,6 +159,7 @@ img {
   font-size: 16px;
   line-height: 1.5;
 }
+
 
 
 
@@ -360,15 +361,14 @@ img {
 
 #post-container {
   text-align: center;
-  max-width: 800px;
+  width: 800px;
   margin: 0 auto;
   padding: 5px;
   line-height: 1.5;
 }
 
 #post-container img {
-  display: inline-block;
-  max-width: 100%;
+  width: 800px;
   height: auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -380,6 +380,17 @@ img {
   margin-bottom: 1rem;
 }
 
+@media (max-width: 768px) {
+#post-container {
+  width: 365px;
+}
+#post-container img {
+  width: 265px;
+}
+.post-image {
+  width: auto;
+}
+}
 
 /* Latest Posts styles */
 .post-grid {
@@ -416,18 +427,18 @@ img {
   .nav-menu {
     display: none;
   }
+
   .navbar {
     height: 40px;
   }
+
   .nav-toggle {
     display: block;
     color: darkslateblue;
     font-size: 1.5rem;
     cursor: pointer;
   }
-  #gallery-container {
-    bottom: 25%;
-  }
+
   .nav-menu.responsive {
     display: flex;
     flex-direction: column;
@@ -466,7 +477,8 @@ img {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-  }
+    bottom: 20%;
+    }
 
   #gallery-container .image-wrapper {
     width: 45%;
@@ -478,17 +490,6 @@ img {
   .hero-text {
     top: 10%;
     font-size: 16pt;
-  }
-
-  .small-images {
-    bottom: 5%;
-    width: 90%;
-  }
-
-  .small-images img {
-    width: 45%;
-    margin-left: 2%;
-    margin-right: 2%;
   }
 }
 
@@ -502,4 +503,3 @@ img {
     height: 40px;
   }
 }
-
