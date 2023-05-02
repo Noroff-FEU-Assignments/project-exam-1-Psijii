@@ -1,7 +1,7 @@
 
 async function displayLatestPosts(page = 1) {
   currentPage = page;
-  const perPage = 5;
+  const perPage = 10;
   const response = await fetch(
     `https://examone.techlilja.io/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}&sticky=false`
   );
@@ -9,7 +9,6 @@ async function displayLatestPosts(page = 1) {
   
   displayPosts(posts, page !== 1);
 }
-
 function displayPosts(posts, append = false) {
   const latestPostsContainer = document.getElementById('latest-posts-container');
   if (!append) {
@@ -32,13 +31,14 @@ function displayPosts(posts, append = false) {
     postWrapper.appendChild(title);
     latestPostsContainer.appendChild(postWrapper);
 
-    // Add click event listener
     postWrapper.addEventListener('click', () => {
       sessionStorage.setItem('selectedPostId', post.id);
-      window.location.href = 'posts.html';
+      sessionStorage.setItem('selectedPostTitle', post.title.rendered); // Store the post title in sessionStorage
+      window.location.href = `posts.html?postId=${post.id}`;
     });
   }
 }
+
 
 async function loadMorePosts() {
   currentPage += 1;

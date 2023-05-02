@@ -25,7 +25,7 @@ async function fetchAllPosts() {
     postWrapper.appendChild(title);
     postWrapper.appendChild(content);
 
-    // Check if post has an image
+    // Check if post has an image, and adding it to the post(s)
     if (post._embedded && post._embedded["wp:featuredmedia"]) {
       const imageUrl = post._embedded["wp:featuredmedia"][0].source_url;
       const image = document.createElement("img");
@@ -37,21 +37,23 @@ async function fetchAllPosts() {
     allPostsContainer.appendChild(postWrapper);
   });
 
-  handleModalBehavior();
+  handleModalBehavior(); 
 }
-
+//modal stuff and functions
 function handleModalBehavior() {
   const closeModal = document.getElementsByClassName("close")[0];
   closeModal.onclick = function() {
     modal.style.display = "none";
   };
 
-  const images = document.querySelectorAll(".post-image");
-  images.forEach((image) => {
-    image.onclick = function() {
-      openModal(image.src);
-    };
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    
+    if (target.matches('.post-image') || target.matches('.post img')) {
+      openModal(target.src);
+    }
   });
 }
+
 
 fetchAllPosts();

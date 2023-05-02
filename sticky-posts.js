@@ -1,6 +1,4 @@
 
-
-
 // -------------------------------------------- //
 //
 // It's working perfectly! Stop destryoing it.  //
@@ -28,7 +26,6 @@ async function getStickiedPosts() {
   return stickiedPosts;
 }
 
-
 async function displayGallery() {
   const stickiedPosts = await getStickiedPosts();
   const galleryContainer = document.getElementById('gallery-container');
@@ -38,17 +35,22 @@ async function displayGallery() {
     imageWrapper.classList.add('image-wrapper');
 
     const image = document.createElement('img');
-    image.src = post.featured_media_url; // Assuming the API returns the featured image URL
+    image.src = post.featured_media_url;
     image.alt = post.title.rendered;
     image.dataset.postId = post.id;
 
+    // Create a new element for the title
+    const title = document.createElement('span'); 
+    title.innerText = post.title.rendered;
+    title.classList.add('image-title'); 
+
     imageWrapper.appendChild(image);
+    imageWrapper.appendChild(title); 
     galleryContainer.appendChild(imageWrapper);
   });
-
-  // Add this after the gallery is created
   addClickEventsToImages();
 }
+
 
 function addClickEventsToImages() {
   const images = document.querySelectorAll('.image-wrapper img');
@@ -56,11 +58,17 @@ function addClickEventsToImages() {
   images.forEach(img => {
     img.addEventListener('click', () => {
       const postId = img.dataset.postId;
+      const postTitle = img.alt; // Get the post title from the image's alt attribute
+
       sessionStorage.setItem('selectedPostId', postId);
-      window.location.href = 'posts.html';
+      sessionStorage.setItem('selectedPostTitle', postTitle); // Store the post title in sessionStorage
+      
+      window.location.href = `posts.html?postId=${postId}`; // Add the postId as a query string parameter
     });
   });
 }
+
+
 
 displayGallery();
 
