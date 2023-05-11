@@ -305,6 +305,66 @@ img {
   margin-right: 0.5rem;
 }
 
+/*contact form*/
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: slateblue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: plum;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 90%;
+  }
+}
+
+/*author page*/
+.container-author {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container-author img {
+  width: 300px;
+}
+
+h1 {
+  text-align: center;
+}
+
+#author-info {
+  margin-top: 20px;
+}
+
+
+
+
 /* Gallery styles */
 #gallery-container {
   position: absolute;
@@ -415,6 +475,8 @@ img {
   padding: 8px 12px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
+  color: darkslategray;
+  width: 100px;
   cursor: pointer;
 }
 

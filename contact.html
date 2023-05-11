@@ -17,22 +17,33 @@
     <nav class="navbar">
       <div class="logo"><a href="index.html">CALLIE</a></div>
       <ul class="nav-menu">
-        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Home</a></li>
         <li><a href="#">Journey</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="#">About me</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-toggle">
         <i class="fa-solid fa-bars"></i>
       </div>
     </nav>
 </header>
-<main>
-  <div id="post-container"></div>
-  <div id="all-posts-container"></div>
-  <script src="fetch-post.js"></script>
+<div class="container">
+  <h1>Contact me</h1>
+  <form id="contact-form">
+    <p>If you any questions or queries, please contact me on 
+      <br>this non-working contact form!
+    </p>
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+</div>
+
+<script src="contact.js"></script>
 <script src="nav.js"></script>
-</main>
+<script src="sticky-posts.js"></script>
+<script src="last-posts.js"></script>
 </body>
 </html>

@@ -12,7 +12,7 @@ async function fetchAllPosts() {
 
   const allPostsContainer = document.getElementById("all-posts-container");
 
-  data.forEach((post) => {
+  data.forEach(async (post) => {
     const postWrapper = document.createElement("div");
     postWrapper.classList.add("post");
 
@@ -22,7 +22,21 @@ async function fetchAllPosts() {
     const content = document.createElement("div");
     content.innerHTML = post.content.rendered;
 
+    // Add date
+    const date = document.createElement("p");
+    date.innerHTML = new Date(post.date).toLocaleDateString();
+    date.classList.add("post-date");
+
+    // Fetch author information
+    const authorResponse = await fetch(`https://examone.techlilja.io/wp-json/wp/v2/users/${post.author}`);
+    const authorData = await authorResponse.json();
+    const author = document.createElement("p");
+    author.innerHTML = `By ${authorData.name}`;
+    author.classList.add("post-author");
+
     postWrapper.appendChild(title);
+    postWrapper.appendChild(date);
+    postWrapper.appendChild(author);
     postWrapper.appendChild(content);
 
     // Check if post has an image, and adding it to the post(s)
@@ -39,7 +53,7 @@ async function fetchAllPosts() {
 
   handleModalBehavior(); 
 }
-//modal stuff and functions
+
 function handleModalBehavior() {
   const closeModal = document.getElementsByClassName("close")[0];
   closeModal.onclick = function() {
@@ -54,6 +68,5 @@ function handleModalBehavior() {
     }
   });
 }
-
 
 fetchAllPosts();
