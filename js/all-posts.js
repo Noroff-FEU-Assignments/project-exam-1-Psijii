@@ -59,11 +59,15 @@ async function loadMorePosts() {
 }
 
 function createLoadMoreButton() {
+  const loadMoreContainer = document.getElementById("load-more-container");
+
   const loadMoreButton = document.createElement('button');
   loadMoreButton.innerText = 'Load more';
   loadMoreButton.addEventListener('click', loadMorePosts);
-  document.body.appendChild(loadMoreButton);
+
+  loadMoreContainer.appendChild(loadMoreButton);
 }
+
 
 function handleModalBehavior() {
   const modal = document.getElementById("image-modal");

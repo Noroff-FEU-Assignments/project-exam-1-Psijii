@@ -41,15 +41,36 @@
     </nav>
   </header>
   <main>
-    <div id="all-posts-container"></div>
+    <div id="main-container">
+      <div id="all-posts-container"></div>
+      <div id="load-more-container"></div>
+    </div>
     <div id="image-modal" class="modal">
       <span class="close">&times;</span>
       <img id="modal-image" class="modal-content">
     </div>
   </main>
+
   <script src="js/sort.js"></script>
   <script src="js/all-posts.js"></script>
   <script src="js/nav.js"></script>
+  <hr>
+  <footer>
+    <div class="left-links">
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+    </div>
+    <div class="right-links">
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact me</a>
+
+    </div>
+    <div class="search-container"> <!---currently non-functional-->
+      <input type="text" id="searchInput" placeholder="Search">
+      <button><i class="fas fa-search"></i></button>
+    </div>
+  </footer>
 </body>
 
 </html>

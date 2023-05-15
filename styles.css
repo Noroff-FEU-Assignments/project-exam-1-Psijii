@@ -340,6 +340,12 @@ button:hover {
   background-color: plum;
 }
 
+#load-more-container {
+  width: 100px;
+  margin: auto;
+  margin-top: 10px;
+}
+
 @media (max-width: 480px) {
   .container {
     width: 90%;
