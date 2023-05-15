@@ -475,14 +475,14 @@ footer {
 }
 
 footer a {
-  color: #555;
+  color: slateblue;
   text-decoration: none;
   margin-right: 10px;
   font-weight: 100;
 }
 
 footer a:hover {
-  color: #333;
+  color: plum;
 }
 
 .fa {
@@ -498,6 +498,9 @@ footer a:hover {
 .search-container input[type="text"] {
   margin-right: 5px;
   padding: 8px;
+  border-radius: 5px;
+  border-style: hidden;
+  border: solid 1px plum;
 }
 
 @media (max-width: 768px) {
@@ -518,6 +521,17 @@ footer a:hover {
     width: auto;
   }
 }
+
+#category-filter {
+  margin: 20px;
+}
+
+#category-select {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* Latest Posts styles */
 .post-grid {
@@ -590,6 +604,7 @@ footer a:hover {
     width: 100%;
     flex-basis: auto;
     padding: 5px;
+    font-family: Lato;
   }
 
   #gallery-container {
