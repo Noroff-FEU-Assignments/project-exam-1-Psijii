@@ -1,23 +1,21 @@
-const modal = document.getElementById("image-modal");
-const modalImg = document.getElementById("modal-image");
+let currentPage = 1;
 
-function openModal(imageUrl) {
-  modal.style.display = "block";
-  modalImg.src = imageUrl;
+async function fetchPosts(page = 1) {
+  const perPage = 10;
+  const response = await fetch(`https://examone.techlilja.io/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}`);
+  const posts = await response.json();
+  return posts;
 }
 
-async function fetchAllPosts() {
-  const response = await fetch("https://examone.techlilja.io/wp-json/wp/v2/posts?_embed&per_page=100");
-  const data = await response.json();
-
+async function displayPosts(posts) {
   const allPostsContainer = document.getElementById("all-posts-container");
 
-  data.forEach(async (post) => {
+  posts.forEach(async (post) => {
     const postWrapper = document.createElement("div");
     postWrapper.classList.add("post");
 
     const title = document.createElement("h2");
-    title.innerHTML = post.title.rendered;
+    title.innerHTML = `<a href="blog.html?postId=${post.id}" class="post-link">${post.title.rendered}</a>`;
 
     const content = document.createElement("div");
     content.innerHTML = post.content.rendered;
@@ -54,8 +52,24 @@ async function fetchAllPosts() {
   handleModalBehavior(); 
 }
 
+async function loadMorePosts() {
+  currentPage += 1;
+  const posts = await fetchPosts(currentPage);
+  displayPosts(posts);
+}
+
+function createLoadMoreButton() {
+  const loadMoreButton = document.createElement('button');
+  loadMoreButton.innerText = 'Load more';
+  loadMoreButton.addEventListener('click', loadMorePosts);
+  document.body.appendChild(loadMoreButton);
+}
+
 function handleModalBehavior() {
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-image");
   const closeModal = document.getElementsByClassName("close")[0];
+
   closeModal.onclick = function() {
     modal.style.display = "none";
   };
@@ -67,6 +81,17 @@ function handleModalBehavior() {
       openModal(target.src);
     }
   });
+
+  function openModal(imageUrl) {
+    modal.style.display = "block";
+    modalImg.src = imageUrl;
+  }
 }
 
-fetchAllPosts();
+async function init() {
+  const posts = await fetchPosts();
+  displayPosts(posts);
+  createLoadMoreButton();
+}
+
+init();

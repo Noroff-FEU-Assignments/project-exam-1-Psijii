@@ -1,28 +1,29 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <!-- Hotjar Tracking Code for https://hilarious-torrone-459941.netlify.app/ -->
-<script>
-  (function(h,o,t,j,a,r){
-      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-      h._hjSettings={hjid:3491564,hjsv:6};
-      a=o.getElementsByTagName('head')[0];
-      r=o.createElement('script');r.async=1;
-      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+  <script>
+    (function (h, o, t, j, a, r) {
+      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+      h._hjSettings = { hjid: 3491564, hjsv: 6 };
+      a = o.getElementsByTagName('head')[0];
+      r = o.createElement('script'); r.async = 1;
+      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
       a.appendChild(r);
-  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-</script>
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
   <title>Callie Furmint | </title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="images/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png" />
   <link rel="stylesheet" type="text/css" href="styles.css">
   <script src="https://kit.fontawesome.com/03e5613b4c.js" crossorigin="anonymous"></script>
   <link href='https://fonts.googleapis.com/css?family=Playfair Display' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
 </head>
+
 <body>
   <header>
     <nav class="navbar">
@@ -38,46 +39,70 @@
         <i class="fa-solid fa-bars"></i>
       </div>
     </nav>
-</header>
-<section class="hero">
-  <h1 class="hero-text">Callie Furmint - the traveler</h1>
-</section>
-<div id="gallery-container"></div>
-<section class="main-content">
-  <div id="latest-posts-section">
-    <h2>Latest Posts</h2>
-    <hr>
-    <div id="latest-posts-container" class="post-grid"></div>
-    <hr>
-    <div id="pagination-container"></div>
-  </div>
-  <div class="author-info">
-    <h2>About the Author</h2>
-    <hr>
-    <img src="images/author.jpeg" alt="Author">
-    <h2><a href="about.html">Callie Furmint</a></h2>
-    <p>Join me and my pet rabbit as we travel the world together, sharing our adventures and tips on pet-friendly
-      destinations.</p>
-    <div class="social-media">
-      <h2>Subscribe & Follow</h2>
+  </header>
+  <section class="hero">
+    <h1 class="hero-text">Callie Furmint - the traveler</h1>
+  </section>
+  <div id="gallery-container"></div>
+  <section class="main-content">
+    <div id="latest-posts-section">
+      <h2>Latest Posts</h2>
       <hr>
-      <ul>
-        <div>
-          <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
-          <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i> Twitter</a></li>
-        </div>
-        <div>
-          <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
-          <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> YouTube</a></li>
-        </div>
-      </ul>
+      <div id="latest-posts-container" class="post-grid"></div>
+      <div id="pagination-container"></div>
       <hr>
+      <div id="post-preview"></div>
+  
     </div>
-  </div>
-</section>
-<div id="load-more-container"></div>
-<script src="nav.js"></script>
-<script src="sticky-posts.js"></script>
-<script src="last-posts.js"></script>
+    <div class="author-info">
+      <h2>About the Author</h2>
+      <hr>
+      <img src="images/author.jpeg" alt="Author">
+      <h2><a href="about.html">Callie Furmint</a></h2>
+      <p>Join me and my pet rabbit as we travel the world together, sharing our adventures and tips on pet-friendly
+        destinations.</p>
+      <div class="social-media">
+        <h2>Subscribe & Follow</h2>
+        <hr>
+        <ul>
+          <div>
+            <li><a href="https://www.facebook.com/"><i class="fab fa-facebook"></i> Facebook</a></li>
+            <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i> Twitter</a></li>
+          </div>
+          <div>
+            <li><a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> YouTube</a></li>
+          </div>
+        </ul>
+        <hr>
+
+      </div>
+
+    </div>
+  </section>
+<hr>
+  <footer>
+    <div class="left-links">
+      <a href="about.html">About</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html">Home</a>
+    </div>
+    <div class="right-links">
+      <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i>Email</a>
+      <a href="#" onclick="subscribeNewsletter()"><i class="fas fa-newspaper"></i>Subscribe</a>
+    </div>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Search">
+      <button onclick="search()"><i class="fas fa-search"></i></button>
+    </div>
+  </footer>
+
+  <script srC="footer.js"></script>
+  <script src="onepost.js"></script>
+  <script src="nav.js"></script>
+  <script src="sticky-posts.js"></script>
+  <script src="last-posts.js"></script>
 </body>
+
 </html>
