@@ -39,6 +39,7 @@ img {
   padding: 0.5rem 1rem;
   position: relative;
   height: 90px;
+  z-index: 9999;
 }
 
 .logo {
@@ -53,6 +54,7 @@ img {
   list-style: none;
   margin: 0;
   padding: 0;
+  z-index: 9999;
 }
 
 .nav-menu li a {
@@ -61,6 +63,7 @@ img {
   text-decoration: none;
   padding: 0.5rem 1rem;
   z-index: 999;
+  font-weight: 200;
 }
 
 .nav-menu li a:hover {
@@ -233,6 +236,7 @@ img {
 #latest-posts-section {
   flex: 1;
   margin-right: 2rem;
+  width: auto;
 }
 #latest-posts-section h2 {
   font-family: Playfair Display;

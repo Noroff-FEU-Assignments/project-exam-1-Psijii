@@ -1,3 +1,4 @@
+let currentPage = 1;
 
 async function displayLatestPosts(page = 1) {
   currentPage = page;
@@ -9,6 +10,7 @@ async function displayLatestPosts(page = 1) {
   
   displayPosts(posts, page !== 1);
 }
+
 function displayPosts(posts, append = false) {
   const latestPostsContainer = document.getElementById('latest-posts-container');
   if (!append) {
@@ -16,7 +18,8 @@ function displayPosts(posts, append = false) {
   }
 
   for (const post of posts) {
-    const postWrapper = document.createElement('div');
+    const postWrapper = document.createElement('a');
+    postWrapper.href = `posts.html?postId=${post.id}`;
     postWrapper.classList.add('post-wrapper');
 
     const imageWrapper = document.createElement('div');
@@ -31,14 +34,14 @@ function displayPosts(posts, append = false) {
     postWrapper.appendChild(title);
     latestPostsContainer.appendChild(postWrapper);
 
-    postWrapper.addEventListener('click', () => {
+    postWrapper.addEventListener('click', (e) => {
+      e.preventDefault();
       sessionStorage.setItem('selectedPostId', post.id);
-      sessionStorage.setItem('selectedPostTitle', post.title.rendered); // Store the post title in sessionStorage
+      sessionStorage.setItem('selectedPostTitle', post.title.rendered);
       window.location.href = `posts.html?postId=${post.id}`;
     });
   }
 }
-
 
 async function loadMorePosts() {
   currentPage += 1;
@@ -48,7 +51,7 @@ async function loadMorePosts() {
 function createLoadMoreButton() {
   const paginationContainer = document.getElementById('pagination-container');
   const loadMoreButton = document.createElement('button');
-  loadMoreButton.innerText = 'Load more';
+  loadMoreButton.innerHTML = '<i class="fa-solid fa-caret-down fa-2xl"></i>';
   loadMoreButton.addEventListener('click', loadMorePosts);
   paginationContainer.appendChild(loadMoreButton);
 }
