@@ -73,7 +73,7 @@ function displayPosts(posts) {
     });
   }
 
-  // If the number of fetched posts is less than 4, add empty placeholders
+  // If the number of fetched posts is less than 4, add empty placeholders - I tried to get this to work, but having difficulties
   if (posts.length < 4) {
     const remainingPostsCount = 4 - posts.length;
     for (let i = 0; i < remainingPostsCount; i++) {
@@ -98,19 +98,29 @@ async function loadNextPosts() {
   }
 }
 
-function createPaginationButtons() {
-  const paginationContainer = document.getElementById('pagination-container');
+function createPreviousButton() {
+  const paginationContainerLeft = document.getElementById('pagination-container-left');
   
   const previousButton = document.createElement('button');
-  previousButton.innerHTML = '<i class="fa-solid fa-caret-left"></i>';
+  previousButton.innerHTML = '<i class="fa-solid fa-angles-left fa-2xl"></i>';
   previousButton.addEventListener('click', loadPreviousPosts);
-  paginationContainer.appendChild(previousButton);
-
-  const nextButton = document.createElement('button');
-  nextButton.innerHTML = '<i class="fa-sharp fa-solid fa-caret-right"></i>';
-  nextButton.addEventListener('click', loadNextPosts);
-  paginationContainer.appendChild(nextButton);
+  paginationContainerLeft.appendChild(previousButton);
 }
+
+function createNextButton() {
+  const paginationContainerRight = document.getElementById('pagination-container-right');
+  
+  const nextButton = document.createElement('button');
+  nextButton.innerHTML = '<i class="fa-solid fa-angles-right fa-2xl"></i>';
+  nextButton.addEventListener('click', loadNextPosts);
+  paginationContainerRight.appendChild(nextButton);
+}
+
+function createPaginationButtons() {
+  createPreviousButton();
+  createNextButton();
+}
+
 
 async function init() {
   totalPages = await getNumberOfPages();

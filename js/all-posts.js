@@ -73,6 +73,7 @@ function handleModalBehavior() {
   const modal = document.getElementById("image-modal");
   const modalImg = document.getElementById("modal-image");
   const closeModal = document.getElementsByClassName("close")[0];
+  const responsiveBreakpoint = 768; // define your responsive breakpoint here
 
   closeModal.onclick = function() {
     modal.style.display = "none";
@@ -80,8 +81,8 @@ function handleModalBehavior() {
 
   document.addEventListener('click', (event) => {
     const target = event.target;
-    
-    if (target.matches('.post-image') || target.matches('.post img')) {
+
+    if ((target.matches('.post-image') || target.matches('.post img')) && window.innerWidth > responsiveBreakpoint) {
       openModal(target.src);
     }
   });
@@ -91,6 +92,7 @@ function handleModalBehavior() {
     modalImg.src = imageUrl;
   }
 }
+
 
 async function init() {
   const posts = await fetchPosts();
