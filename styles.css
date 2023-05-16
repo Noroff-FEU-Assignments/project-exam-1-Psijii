@@ -38,6 +38,9 @@ img {
 
 /*nav bar */
 
+
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -262,7 +265,7 @@ h3 {
 .social-media ul {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   list-style: none;
   padding: 0;
 }
@@ -486,7 +489,7 @@ footer {
   padding: 5px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   border-radius: 5px;
 }
@@ -525,7 +528,8 @@ footer a:hover {
 
 @media (max-width: 768px) {
   .left-links,
-  .right-links {
+  .right-links,
+  .social-media {
     width: 100%;
     text-align: center;
     margin-bottom: 10px;
