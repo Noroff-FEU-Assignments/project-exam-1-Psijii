@@ -2,20 +2,26 @@
 body {
   margin: auto;
   font-family: Arial, sans-serif;
-  background-color: white;
+  background-color: var(--white);
   overflow-x: hidden;
 }
+
+/*root styles*/
+:root {
+  --white: #fafafa;
+  --black: #2d2d2d;
+  --lpink: #e8dfe7;
+}
+
 
 hr {
   border: 0;
   height: 1px;
   margin-bottom: 15px;
-  background-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 0.75),
-    rgba(0, 0, 0, 0)
-  );
+  background-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0));
 }
 
 a {
@@ -32,7 +38,7 @@ p,
 a,
 label,
 span {
-  color: #2d2d2d;
+  color: var(--black);
   font-family: Lato;
   font-size: 16px;
   line-height: 1.5;
@@ -43,7 +49,7 @@ h2,
 h3,
 h4 {
   text-align: center;
-  color: #2d2d2d;
+  color: var(--black);
   font-family: Playfair Display;
 }
 
@@ -57,7 +63,7 @@ img {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
-  border: 2px solid white;
+  border: 2px solid var(--white);
 }
 
 /*nav bar */
@@ -111,7 +117,7 @@ img {
 
 /* posts.html blog.html posts */
 .post {
-  background-color: #e8dfe7;
+  background-color: var(--lpink);
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 2rem;
@@ -138,6 +144,7 @@ img {
   .post div {
     width: 360px;
   }
+
   .post img {
     width: 290px;
   }
@@ -200,19 +207,19 @@ img {
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: var(--white);
   font-size: 28pt;
   text-align: center;
   line-height: 1.2;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-/*stickied posts*/
+/*stickied posts, latest posts*/
 
 .content-section {
   display: flex;
   justify-content: space-between;
-  padding: 2rem;
+  padding: 5px;
 }
 
 .post-grid {
@@ -234,11 +241,6 @@ img {
   cursor: pointer;
 }
 
-.post-grid h3 {
-  margin-top: 0.5rem;
-  text-align: center;
-}
-
 .post-grid img {
   width: 48%;
   margin-bottom: 1rem;
@@ -248,6 +250,19 @@ img {
 .main-content {
   display: flex;
 }
+
+@media (max-width: 768px) {
+
+  .post-grid .image-wrapper {
+    width: 100%;
+    height: 30px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }
+}
+
+/*alignment styles for latest post sections index.html */
 
 #latest-posts-section {
   flex: 1;
@@ -259,6 +274,7 @@ img {
   align-items: center;
   justify-content: center;
 }
+
 
 /*social media content */
 .social-media {
@@ -328,7 +344,7 @@ button {
 
 form button {
   background-color: slateblue;
-  color: white;
+  color: var(--white);
   width: 100%;
 }
 
@@ -375,6 +391,7 @@ form button:hover {
   .mobile-show-author {
     display: inline;
   }
+
   .mobile-show-author img {
     display: inline;
     width: 340px;
@@ -409,7 +426,7 @@ form button:hover {
   width: 150px;
   margin-bottom: 10px;
   background-color: darkslateblue;
-  color: white;
+  color: var(--white);
 }
 
 .post-preview-wrapper button:hover {
@@ -418,8 +435,9 @@ form button:hover {
 
 #main-container button {
   background-color: slateblue;
-  color: white;
+  color: var(--white);
 }
+
 #main-container button:hover {
   background-color: plum;
 }
@@ -458,7 +476,7 @@ form button:hover {
   left: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.7);
-  color: white;
+  color: var(--white);
   text-align: center;
   padding: 10px;
   opacity: 0;
@@ -509,7 +527,7 @@ form button:hover {
 /*footer */
 
 footer {
-  background-color: #e8dfe7;
+  background-color: var(--lpink);
   padding: 5px;
   display: flex;
   flex-wrap: wrap;
@@ -519,7 +537,7 @@ footer {
 }
 
 footer h3 {
-  color: #230e45;
+  color: var(--black);
 }
 
 footer a {
@@ -544,7 +562,7 @@ footer a:hover {
 
 .search-container button {
   background-color: slateblue;
-  color: white;
+  color: var(--white);
   padding: 8px;
   border-radius: 5px;
   border-style: none;
@@ -565,6 +583,7 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+
   .left-links,
   .right-links,
   .social-media {
@@ -573,21 +592,26 @@ footer a:hover {
     display: flex;
     flex-direction: column;
   }
+
   .search-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     padding: 5px;
   }
+
   .search-container button {
     margin-top: 8px;
   }
+
   #post-container {
     width: 365px;
   }
+
   #post-container img {
     width: 265px;
   }
+
   .post-image {
     width: auto;
   }
@@ -603,7 +627,7 @@ footer a:hover {
   flex-direction: column;
 }
 
-/* Latest posts styles */
+/* Latest posts styles  */
 .post-grid {
   display: flex;
   flex-wrap: wrap;
@@ -612,27 +636,31 @@ footer a:hover {
 }
 
 .post-wrapper {
-  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
 }
+
+
 
 #pagination-container-left i:hover {
   color: darkorchid;
 }
+
 #pagination-container-right i:hover {
   color: darkorchid;
 }
+
 #pagination-container-left button {
   width: 90px;
   background-color: transparent !important;
   color: darkslateblue;
 }
+
 #pagination-container-right button {
   width: 90px;
   background-color: transparent !important;
   color: darkslateblue;
 }
-
-
 
 /* Responsive styles */
 @media (max-width: 768px) {
@@ -644,16 +672,16 @@ footer a:hover {
     height: 40px;
     background-color: darkslateblue;
   }
-  
+
   .nav-toggle {
     display: block;
-    color: white;
+    color: var(--white);
     font-size: 1.5rem;
     cursor: pointer;
   }
 
   .logo a {
-    color: white;
+    color: var(--white);
   }
 
   .nav-menu.responsive {
@@ -669,9 +697,11 @@ footer a:hover {
   .nav-menu.responsive li {
     margin-top: 1px;
   }
+
   .nav-menu.responsive a {
-    color: white;
+    color: var(--white);
   }
+
   .hero-text {
     font-size: 20pt;
     top: 10%;
@@ -704,28 +734,34 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
+
   /*iphone and droid safety styles */
   .hero-text {
     top: 10%;
     font-size: 16pt;
   }
+
   body {
     font-family: Arial, sans-serif;
   }
 }
 
 @media (max-width: 1020px) {
+
   /*iphone and droid safety styles */
   .hero-text {
     top: 10%;
     font-size: 22pt;
   }
+
   .navbar {
     height: 40px;
   }
+
   body {
     font-family: Arial, sans-serif;
   }
+
   form {
     width: 320px;
   }
