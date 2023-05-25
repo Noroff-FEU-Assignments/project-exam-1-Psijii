@@ -1,5 +1,5 @@
 let currentPage = 1;
-
+//I decided to display a maximum FOUR posts at a time, since otherwise it'll be a lot of text
 async function fetchPosts(page = 1) {
   const perPage = 4;
   const response = await fetch(`https://examone.techlilja.io/wp-json/wp/v2/posts?_embed&page=${page}&per_page=${perPage}`);

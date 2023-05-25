@@ -6,3 +6,5 @@ document.addEventListener("DOMContentLoaded", function () {
     navMenu.classList.toggle("responsive");
   });
 });
+
+
