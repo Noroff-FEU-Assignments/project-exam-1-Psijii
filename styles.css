@@ -11,17 +11,22 @@ body {
   --white: #fafafa;
   --black: #2d2d2d;
   --lpink: #e8dfe7;
+  --dsblue: darkslateblue;
+  --sblue: slateblue;
+  --dorc: darkorchid;
+  --plum: plum;
 }
-
 
 hr {
   border: 0;
   height: 1px;
   margin-bottom: 15px;
-  background-image: linear-gradient(to right,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 0.75),
-      rgba(0, 0, 0, 0));
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 a {
@@ -54,7 +59,7 @@ h4 {
 }
 
 a.post-link {
-  /*have to do it this to way to ensure the headers are correct */
+  /*have to do it this to way to ensure the headers are correct on the posts*/
   font-family: Playfair Display;
   font-size: 24px;
 }
@@ -79,7 +84,7 @@ img {
 }
 
 .logo a {
-  color: darkslateblue;
+  color: var(--dsblue);
   font-size: 1.5rem;
   font-family: Playfair Display;
   font-weight: 700;
@@ -95,14 +100,14 @@ img {
 
 .nav-menu li a {
   display: block;
-  color: darkslateblue;
+  color: var(--dsblue);
   padding: 0.5rem 1rem;
   z-index: 999;
   font-weight: 100;
 }
 
 .nav-menu li a:hover {
-  color: darkorchid;
+  color: var(--dorc);
 }
 
 .nav-toggle {
@@ -176,7 +181,7 @@ img {
   position: absolute;
   top: 15px;
   right: 35px;
-  color: #f1f1f1;
+  color: var(--white);
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
@@ -252,7 +257,6 @@ img {
 }
 
 @media (max-width: 768px) {
-
   .post-grid .image-wrapper {
     width: 100%;
     height: 30px;
@@ -274,7 +278,6 @@ img {
   align-items: center;
   justify-content: center;
 }
-
 
 /*social media content */
 .social-media {
@@ -320,7 +323,7 @@ form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid plum;
+  border: 1px solid var(--plum);
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
@@ -343,13 +346,13 @@ button {
 }
 
 form button {
-  background-color: slateblue;
+  background-color: var(--sblue);
   color: var(--white);
   width: 100%;
 }
 
 form button:hover {
-  background-color: plum;
+  background-color: var(--plum);
 }
 
 #load-more-container {
@@ -425,21 +428,21 @@ form button:hover {
 .post-preview-wrapper button {
   width: 150px;
   margin-bottom: 10px;
-  background-color: darkslateblue;
+  background-color: var(--dsblue);
   color: var(--white);
 }
 
 .post-preview-wrapper button:hover {
-  background-color: plum;
+  background-color: var(--plum);
 }
 
 #main-container button {
-  background-color: slateblue;
+  background-color: var(--sblue);
   color: var(--white);
 }
 
 #main-container button:hover {
-  background-color: plum;
+  background-color: var(--plum);
 }
 
 /* Gallery styles */
@@ -541,14 +544,14 @@ footer h3 {
 }
 
 footer a {
-  color: darkslateblue;
+  color: var(--dsblue);
   text-decoration: none;
   margin-right: 10px;
   font-weight: 100;
 }
 
 footer a:hover {
-  color: plum;
+  color: var(--plum);
 }
 
 .fa {
@@ -561,7 +564,7 @@ footer a:hover {
 }
 
 .search-container button {
-  background-color: slateblue;
+  background-color: var(--sblue);
   color: var(--white);
   padding: 8px;
   border-radius: 5px;
@@ -570,7 +573,7 @@ footer a:hover {
 }
 
 .search-container button:hover {
-  background-color: plum;
+  background-color: var(--plum);
 }
 
 .search-container input[type="text"] {
@@ -578,12 +581,11 @@ footer a:hover {
   padding: 8px;
   border-radius: 5px;
   border-style: hidden;
-  border: solid 1px plum;
+  border: solid 1px var(--plum);
   margin-top: 10px;
 }
 
 @media (max-width: 768px) {
-
   .left-links,
   .right-links,
   .social-media {
@@ -640,26 +642,24 @@ footer a:hover {
   flex-wrap: wrap;
 }
 
-
-
 #pagination-container-left i:hover {
-  color: darkorchid;
+  color: var(--dorc);
 }
 
 #pagination-container-right i:hover {
-  color: darkorchid;
+  color: var(--dorc);
 }
 
 #pagination-container-left button {
   width: 90px;
   background-color: transparent !important;
-  color: darkslateblue;
+  color: var(--dsblue);
 }
 
 #pagination-container-right button {
   width: 90px;
   background-color: transparent !important;
-  color: darkslateblue;
+  color: var(--dsblue);
 }
 
 /* Responsive styles */
@@ -670,7 +670,7 @@ footer a:hover {
 
   .navbar {
     height: 40px;
-    background-color: darkslateblue;
+    background-color: var(--dsblue);
   }
 
   .nav-toggle {
@@ -691,7 +691,7 @@ footer a:hover {
     top: 100%;
     left: 0;
     right: 0;
-    background-color: darkslateblue;
+    background-color: var(--dsblue);
   }
 
   .nav-menu.responsive li {
@@ -734,7 +734,6 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-
   /*iphone and droid safety styles */
   .hero-text {
     top: 10%;
@@ -747,7 +746,6 @@ footer a:hover {
 }
 
 @media (max-width: 1020px) {
-
   /*iphone and droid safety styles */
   .hero-text {
     top: 10%;

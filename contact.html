@@ -42,17 +42,17 @@
   </header>
   <div class="container">
     <h1>Contact me</h1>
-    <form id="contact-form">
-      <p>If you any questions or queries, please contact me on
-        this non-working contact form!
-      </p>
+    <form id="contact-form" onsubmit="submitForm(event)">
+      <p>If you have any questions or queries, please contact me using this non-working contact form!</p>
       <input type="text" id="name" placeholder="Your name" required>
       <input type="email" id="email" placeholder="Your e-mail" required>
       <input type="text" id="title" placeholder="Subject" required>
       <textarea id="message" placeholder="Your message" required></textarea>
       <button type="submit">Send</button>
     </form>
+    <div id="container-confirmation"></div>
   </div>
+  
   <hr>
   <footer>
     <div clasS="left-links">
