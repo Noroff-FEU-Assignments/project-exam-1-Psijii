@@ -30,7 +30,6 @@
       <div class="logo"><a href="index.html">CALLIE</a></div>
       <ul class="nav-menu">
         <li><a href="index.html">Home</a></li>
-        <li><a href="#">Journey</a></li>
         <li><a href="blog.html">Blog</a></li>
         <li><a href="about.html">About me</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -44,10 +43,10 @@
   <h1>Contact me</h1>
   <form id="contact-form" onsubmit="submitForm(event)">
     <p>If you have any questions or queries, please contact me using this non-working contact form!</p>
-    <input type="text" id="name" placeholder="Your name" required>
-    <input type="email" id="email" placeholder="Your e-mail" required>
-    <input type="text" id="title" placeholder="Subject" required>
-    <textarea id="message" placeholder="Your message" required></textarea>
+    <input type="text" id="name" label="Your name" placeholder="Your name" required>
+    <input type="email" id="email" label="E-mail" placeholder="Your e-mail" required>
+    <input type="text" id="title" label="title" placeholder="Subject" required>
+    <textarea id="message" label="Your message" placeholder="Your message" required></textarea>
     <button type="submit">Send</button>
   </form>
   <div id="container-confirmation"></div>
@@ -83,12 +82,12 @@
       </ul>
     </div>
     <div class="right-links">
-      <h3>Contact & Search</h3>
+      <h3>Contact & Search</h3> <!--non functional-->
       <a href="contact.html"><i class="fa-regular fa-envelope"></i> Contact me</a>
-    <div class="search-container"> <!---currently non-functional-->
-      <input type="text" id="searchInput" placeholder="Search">
-      <button><i class="fas fa-search"></i></button>
-    </div>
+      <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search" label="Search">
+        <button id="searchButton"><i class="fas fa-search" label="Search button"></i></button>
+      </div>      
   </footer>
   <script src="js/title.js"></script>
   <script src="js/contact.js"></script>
