@@ -554,32 +554,6 @@ footer a:hover {
   margin-right: 5px;
 }
 
-.search-container {
-  display: flex;
-  align-items: center;
-}
-
-.search-container button {
-  background-color: var(--sblue);
-  color: var(--white);
-  padding: 8px;
-  border-radius: 5px;
-  border-style: none;
-  margin-top: 8px;
-}
-
-.search-container button:hover {
-  background-color: var(--plum);
-}
-
-.search-container input[type="text"] {
-  margin-right: 5px;
-  padding: 8px;
-  border-radius: 5px;
-  border-style: hidden;
-  border: solid 1px var(--plum);
-  margin-top: 10px;
-}
 
 @media (max-width: 768px) {
   .left-links,
@@ -589,17 +563,6 @@ footer a:hover {
     text-align: center;
     display: flex;
     flex-direction: column;
-  }
-
-  .search-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 5px;
-  }
-
-  .search-container button {
-    margin-top: 8px;
   }
 
   #post-container {
